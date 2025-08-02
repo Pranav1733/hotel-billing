@@ -3,7 +3,6 @@ import '../Auth/login_view.dart';
 import '../View/TableManagementView/table_management_view.dart';
 import '../View/TableManagementView/widgets/add_items_page.dart';
 import '../View/TableManagementView/widgets/customer_detail_page.dart';
-import '../View/bottum_nevigation_bar.dart';
 import 'app_bindings.dart';
 
 class AppRoutes {
@@ -27,6 +26,9 @@ class AppRoutes {
       name: login,
       page: () =>  LoginScreen(),
       binding: AppBindings(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 300),
+
     ), // Dashboard route
     GetPage(
       name: AppRoutes.dashboard,

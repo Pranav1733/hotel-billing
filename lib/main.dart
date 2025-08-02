@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
           ),
           debugShowCheckedModeBanner: false,
           title: 'Hotel Billing',
-          initialRoute: AppRoutes.dashboard,
+          initialRoute: AppRoutes.login,
           getPages: AppRoutes.routes,
           initialBinding: AppBindings(),
         );

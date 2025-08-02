@@ -327,3 +327,5 @@ class LoginController extends GetxController {
   String get username => currentUsername.value;
   String get distributorName => currentDistributorName.value;
 }
+
+

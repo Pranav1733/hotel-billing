@@ -205,103 +205,372 @@ class _CustomerDetailPageState extends State<CustomerDetailPage> {
               SizedBox(height: 16.h),
 
               // Selected items list
+              // Expanded(
+              //   child: Obx(() => controller.selectedDishes.isEmpty
+              //       ? Center(
+              //           child: Text(
+              //             'No items selected',
+              //             style: TextStyle(
+              //               fontSize: 16.sp,
+              //               color: Colors.grey[500],
+              //             ),
+              //           ),
+              //         )
+              //       : ListView.builder(
+              //           itemCount: controller.selectedDishes.length,
+              //           itemBuilder: (context, index) {
+              //             final dish = controller.selectedDishes[index];
+              //             return Card(
+              //               margin: EdgeInsets.only(bottom: 8.h),
+              //               child: Padding(
+              //                 padding: EdgeInsets.all(12.w),
+              //                 child: Row(
+              //                   children: [
+              //                     Icon(
+              //                       Icons.drag_indicator,
+              //                       color: Colors.blue[600],
+              //                       size: 20.sp,
+              //                     ),
+              //                     SizedBox(width: 12.w),
+              //                     Expanded(
+              //                       child: Text(
+              //                         dish['name'],
+              //                         style: TextStyle(
+              //                           fontSize: 14.sp,
+              //                           fontWeight: FontWeight.w500,
+              //                         ),
+              //                       ),
+              //                     ),
+              //                     Row(
+              //                       children: [
+              //                         IconButton(
+              //                           onPressed: () =>
+              //                               controller.updateDishQuantity(
+              //                                   dish, dish['quantity'] - 1),
+              //                           icon: Icon(Icons.remove, size: 16.sp),
+              //                           constraints: BoxConstraints(
+              //                             minWidth: 32.w,
+              //                             minHeight: 32.h,
+              //                           ),
+              //                         ),
+              //                         Container(
+              //                           width: 40.w,
+              //                           alignment: Alignment.center,
+              //                           child: Text(
+              //                             '${dish['quantity']}',
+              //                             style: TextStyle(
+              //                               fontSize: 14.sp,
+              //                               fontWeight: FontWeight.bold,
+              //                             ),
+              //                           ),
+              //                         ),
+              //                         IconButton(
+              //                           onPressed: () =>
+              //                               controller.updateDishQuantity(
+              //                                   dish, dish['quantity'] + 1),
+              //                           icon: Icon(Icons.add, size: 16.sp),
+              //                           constraints: BoxConstraints(
+              //                             minWidth: 32.w,
+              //                             minHeight: 32.h,
+              //                           ),
+              //                         ),
+              //                       ],
+              //                     ),
+              //                     SizedBox(width: 8.w),
+              //                     Text(
+              //                       '₹${(dish['price'] as double).toInt()}',
+              //                       style: TextStyle(
+              //                         fontSize: 12.sp,
+              //                         color: Colors.grey[600],
+              //                       ),
+              //                     ),
+              //                     SizedBox(width: 8.w),
+              //                     Text(
+              //                       '₹${((dish['price'] as double) * (dish['quantity'] as int)).toInt()}',
+              //                       style: TextStyle(
+              //                         fontSize: 12.sp,
+              //                         fontWeight: FontWeight.bold,
+              //                         color: Colors.green[600],
+              //                       ),
+              //                     ),
+              //                   ],
+              //                 ),
+              //               ),
+              //             );
+              //           },
+              //         )),
+              // ),
+
+              // Bottom section
+              // Complete updated ListView.builder for your CustomerDetailPage
+// Replace the existing ListView.builder section with this:
+
+              // Fixed ListView section for CustomerDetailPage
               Expanded(
                 child: Obx(() => controller.selectedDishes.isEmpty
                     ? Center(
-                        child: Text(
-                          'No items selected',
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            color: Colors.grey[500],
+                  child: Text(
+                    'No items selected',
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      color: Colors.grey[500],
+                    ),
+                  ),
+                )
+                    : Column(
+                  children: [
+                    // Header row with proper alignment
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                      margin: EdgeInsets.only(bottom: 8.h),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[100],
+                        borderRadius: BorderRadius.circular(6.r),
+                        border: Border.all(color: Colors.grey[300]!),
+                      ),
+                      child: Row(
+                        children: [
+                          // Serial number column
+                          SizedBox(
+                            width: 30.w,
+                            child: Text(
+                              '#',
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey[700],
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
-                        ),
-                      )
-                    : ListView.builder(
+
+                          SizedBox(width: 12.w),
+
+                          // Item name column
+                          Expanded(
+                            flex: 3,
+                            child: Text(
+                              'Item',
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey[700],
+                              ),
+                            ),
+                          ),
+
+                          // Quantity column
+                          SizedBox(
+                            width: 80.w,
+                            child: Text(
+                              'Quantity',
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey[700],
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+
+                          // Price column
+                          SizedBox(
+                            width: 50.w,
+                            child: Text(
+                              'Price',
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey[700],
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+
+                          // Total column
+                          SizedBox(
+                            width: 40.w,
+                            child: Text(
+                              'Total',
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey[700],
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // Items list
+                    Expanded(
+                      child: ListView.builder(
                         itemCount: controller.selectedDishes.length,
                         itemBuilder: (context, index) {
                           final dish = controller.selectedDishes[index];
-                          return Card(
+                          final serialNumber = index + 1;
+
+                          return Container(
                             margin: EdgeInsets.only(bottom: 8.h),
-                            child: Padding(
-                              padding: EdgeInsets.all(12.w),
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.drag_indicator,
-                                    color: Colors.blue[600],
-                                    size: 20.sp,
-                                  ),
-                                  SizedBox(width: 12.w),
-                                  Expanded(
-                                    child: Text(
-                                      dish['name'],
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w500,
+                            padding: EdgeInsets.all(12.w),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(6.r),
+                              border: Border.all(color: Colors.grey[200]!),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.1),
+                                  blurRadius: 4.r,
+                                  offset: Offset(0, 2.h),
+                                ),
+                              ],
+                            ),
+                            child: Row(
+                              children: [
+                                // Serial Number
+                                Container(
+                                  width: 20.w,
+                                  child: Container(
+                                    width: 24.w,
+                                    height: 24.h,
+                                    decoration: BoxDecoration(
+                                      color: Colors.blue[600],
+                                      borderRadius: BorderRadius.circular(12.r),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        '$serialNumber',
+                                        style: TextStyle(
+                                          fontSize: 12.sp,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                  Row(
+                                ),
+
+                                SizedBox(width: 12.w),
+
+                                // Item details
+                                Expanded(
+                                  flex: 3,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      IconButton(
-                                        onPressed: () =>
-                                            controller.updateDishQuantity(
-                                                dish, dish['quantity'] - 1),
-                                        icon: Icon(Icons.remove, size: 16.sp),
-                                        constraints: BoxConstraints(
-                                          minWidth: 32.w,
-                                          minHeight: 32.h,
+                                      Text(
+                                        dish['name'],
+                                        style: TextStyle(
+                                          fontSize: 14.sp,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.black87,
+                                        ),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+
+                                    ],
+                                  ),
+                                ),
+
+                                // Quantity controls
+                                SizedBox(
+                                  width: 70.w,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () => controller.updateDishQuantity(
+                                            dish, dish['quantity'] - 1),
+                                        child: Container(
+                                          width: 20.w,
+                                          height: 24.h,
+                                          decoration: BoxDecoration(
+                                            color: Colors.red[50],
+                                            borderRadius: BorderRadius.circular(4.r),
+                                            border: Border.all(color: Colors.red[200]!),
+                                          ),
+                                          child: Icon(
+                                            Icons.remove,
+                                            size: 14.sp,
+                                            color: Colors.red[600],
+                                          ),
                                         ),
                                       ),
+
                                       Container(
-                                        width: 40.w,
+                                        width: 23.w,
                                         alignment: Alignment.center,
                                         child: Text(
                                           '${dish['quantity']}',
                                           style: TextStyle(
                                             fontSize: 14.sp,
                                             fontWeight: FontWeight.bold,
+                                            color: Colors.black87,
                                           ),
                                         ),
                                       ),
-                                      IconButton(
-                                        onPressed: () =>
-                                            controller.updateDishQuantity(
-                                                dish, dish['quantity'] + 1),
-                                        icon: Icon(Icons.add, size: 16.sp),
-                                        constraints: BoxConstraints(
-                                          minWidth: 32.w,
-                                          minHeight: 32.h,
+
+                                      GestureDetector(
+                                        onTap: () => controller.updateDishQuantity(
+                                            dish, dish['quantity'] + 1),
+                                        child: Container(
+                                          width: 20.w,
+                                          height: 24.h,
+                                          decoration: BoxDecoration(
+                                            color: Colors.green[50],
+                                            borderRadius: BorderRadius.circular(4.r),
+                                            border: Border.all(color: Colors.green[200]!),
+                                          ),
+                                          child: Icon(
+                                            Icons.add,
+                                            size: 14.sp,
+                                            color: Colors.green[600],
+                                          ),
                                         ),
                                       ),
                                     ],
                                   ),
-                                  SizedBox(width: 8.w),
-                                  Text(
+                                ),
+
+                                // Unit Price
+                                SizedBox(
+                                  width: 30.w,
+                                  child: Text(
                                     '₹${(dish['price'] as double).toInt()}',
                                     style: TextStyle(
                                       fontSize: 12.sp,
                                       color: Colors.grey[600],
+                                      fontWeight: FontWeight.w500,
                                     ),
+                                    textAlign: TextAlign.center,
                                   ),
-                                  SizedBox(width: 8.w),
-                                  Text(
+                                ),
+
+                                // Total Price
+                                SizedBox(
+                                  width: 60.w,
+                                  child: Text(
                                     '₹${((dish['price'] as double) * (dish['quantity'] as int)).toInt()}',
                                     style: TextStyle(
-                                      fontSize: 12.sp,
+                                      fontSize: 14.sp,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.green[600],
                                     ),
+                                    textAlign: TextAlign.center,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           );
                         },
-                      )),
+                      ),
+                    ),
+                  ],
+                )),
               ),
-
-              // Bottom section
               Container(
                 padding: EdgeInsets.symmetric(vertical: 16.h),
                 child: Row(
