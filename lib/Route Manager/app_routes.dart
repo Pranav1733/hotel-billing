@@ -30,7 +30,7 @@ class AppRoutes {
     ), // Dashboard route
     GetPage(
       name: AppRoutes.dashboard,
-      page: () => const TableManagementView(),
+      page: () =>  TableManagementView(),
       binding: AppBindings(),
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 300),
