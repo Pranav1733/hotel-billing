@@ -325,7 +325,6 @@ class TableManagementView extends StatelessWidget {
                           SizedBox(width: 8.w),
                           _buildLegendItem(Colors.red[400]!, 'Occupied'),
                           SizedBox(width: 8.w),
-                          _buildLegendItem(Colors.orange[500]!, 'Urgent'),
                         ],
                       ),
                     ],
