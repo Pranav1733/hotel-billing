@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../Controller/table_management_controller.dart';
@@ -102,6 +103,10 @@ class _CustomerDetailPageState extends State<CustomerDetailPage> {
               TextFormField(
                 controller: controller.phoneController,
                 keyboardType: TextInputType.phone,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  LengthLimitingTextInputFormatter(10),
+                ],
                 decoration: InputDecoration(
                   hintText: 'Phone number',
                   border: OutlineInputBorder(
@@ -115,6 +120,7 @@ class _CustomerDetailPageState extends State<CustomerDetailPage> {
                 validator: controller.validatePhoneNumber,
                 onChanged: (value) => controller.saveCustomerDetails(),
               ),
+
               SizedBox(height: 24.h),
 
               // Items section
@@ -320,89 +326,89 @@ class _CustomerDetailPageState extends State<CustomerDetailPage> {
                     : Column(
                   children: [
                     // Header row with proper alignment
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-                      margin: EdgeInsets.only(bottom: 8.h),
-                      decoration: BoxDecoration(
-                        color: Colors.grey[100],
-                        borderRadius: BorderRadius.circular(6.r),
-                        border: Border.all(color: Colors.grey[300]!),
-                      ),
-                      child: Row(
-                        children: [
-                          // Serial number column
-                          SizedBox(
-                            width: 30.w,
-                            child: Text(
-                              '#',
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey[700],
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-
-                          SizedBox(width: 12.w),
-
-                          // Item name column
-                          Expanded(
-                            flex: 3,
-                            child: Text(
-                              'Item',
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey[700],
-                              ),
-                            ),
-                          ),
-
-                          // Quantity column
-                          SizedBox(
-                            width: 80.w,
-                            child: Text(
-                              'Quantity',
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey[700],
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-
-                          // Price column
-                          SizedBox(
-                            width: 50.w,
-                            child: Text(
-                              'Price',
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey[700],
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-
-                          // Total column
-                          SizedBox(
-                            width: 40.w,
-                            child: Text(
-                              'Total',
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey[700],
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    // Container(
+                    //   padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                    //   margin: EdgeInsets.only(bottom: 8.h),
+                    //   decoration: BoxDecoration(
+                    //     color: Colors.grey[100],
+                    //     borderRadius: BorderRadius.circular(6.r),
+                    //     border: Border.all(color: Colors.grey[300]!),
+                    //   ),
+                    //   child: Row(
+                    //     children: [
+                    //       // Serial number column
+                    //       SizedBox(
+                    //         width: 30.w,
+                    //         child: Text(
+                    //           '#',
+                    //           style: TextStyle(
+                    //             fontSize: 14.sp,
+                    //             fontWeight: FontWeight.bold,
+                    //             color: Colors.grey[700],
+                    //           ),
+                    //           textAlign: TextAlign.center,
+                    //         ),
+                    //       ),
+                    //
+                    //       SizedBox(width: 12.w),
+                    //
+                    //       // Item name column
+                    //       Expanded(
+                    //         flex: 3,
+                    //         child: Text(
+                    //           'Item',
+                    //           style: TextStyle(
+                    //             fontSize: 14.sp,
+                    //             fontWeight: FontWeight.bold,
+                    //             color: Colors.grey[700],
+                    //           ),
+                    //         ),
+                    //       ),
+                    //
+                    //       // Quantity column
+                    //       SizedBox(
+                    //         width: 80.w,
+                    //         child: Text(
+                    //           'Quantity',
+                    //           style: TextStyle(
+                    //             fontSize: 14.sp,
+                    //             fontWeight: FontWeight.bold,
+                    //             color: Colors.grey[700],
+                    //           ),
+                    //           textAlign: TextAlign.center,
+                    //         ),
+                    //       ),
+                    //
+                    //       // Price column
+                    //       SizedBox(
+                    //         width: 50.w,
+                    //         child: Text(
+                    //           'Price',
+                    //           style: TextStyle(
+                    //             fontSize: 14.sp,
+                    //             fontWeight: FontWeight.bold,
+                    //             color: Colors.grey[700],
+                    //           ),
+                    //           textAlign: TextAlign.center,
+                    //         ),
+                    //       ),
+                    //
+                    //       // Total column
+                    //       SizedBox(
+                    //         width: 40.w,
+                    //         child: Text(
+                    //           'Total',
+                    //           style: TextStyle(
+                    //             fontSize: 14.sp,
+                    //             fontWeight: FontWeight.bold,
+                    //             color: Colors.grey[700],
+                    //           ),
+                    //           textAlign: TextAlign.center,
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
 
                     // Items list
                     Expanded(
@@ -412,7 +418,7 @@ class _CustomerDetailPageState extends State<CustomerDetailPage> {
                           final dish = controller.selectedDishes[index];
                           final serialNumber = index + 1;
 
-                          return Container(
+ return Container(
                             margin: EdgeInsets.only(bottom: 8.h),
                             padding: EdgeInsets.all(12.w),
                             decoration: BoxDecoration(

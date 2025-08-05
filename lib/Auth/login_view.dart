@@ -45,47 +45,11 @@ class LoginScreen extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.only(top: 20.h, bottom: 10.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Alpani Hotel',
-            style: TextStyle(
-              fontSize: 24.sp,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-            ),
-          ),
-          SizedBox(height: 4.h),
-          Text(
-            '2972 Westheimer Rd, Santa Ana, Illinois 85486',
-            style: TextStyle(
-              fontSize: 12.sp,
-              color: Colors.grey.shade600,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-        ],
-      ),
-    );
+       );
   }
 
   Widget _buildLoginCard(LoginViewController controller) {
     return Container(
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 4.w),
-      padding: EdgeInsets.all(24.w),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.08),
-            blurRadius: 20.r,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
       child: Form(
         key: controller.formKey,
         child: Column(
@@ -96,7 +60,7 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'welcome back',
+                    'welcome',
                     style: TextStyle(
                       fontSize: 22.sp,
                       fontWeight: FontWeight.w600,
