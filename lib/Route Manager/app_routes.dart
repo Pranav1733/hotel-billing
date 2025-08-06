@@ -3,6 +3,7 @@ import '../Auth/login_view.dart';
 import '../View/TableManagementView/table_management_view.dart';
 import '../View/TableManagementView/widgets/add_items_page.dart';
 import '../View/TableManagementView/widgets/customer_detail_page.dart';
+import '../View/chef_pannel/order_management_view.dart';
 import 'app_bindings.dart';
 
 class AppRoutes {
@@ -10,14 +11,15 @@ class AppRoutes {
   static const login = '/login';
 
 // lib/routes/app_routes.dart
-  static const dashboard = '/dashboard';
+  static const waiterDashboard = '/dashboard';
   static const customerDetails = '/customer-details';
   static const addItems = '/add-items';
   static const orderSummary = '/order-summary';
   static const tableDetails = '/table-details';
   static const settings = '/settings';
   static const reports = '/reports';
-  
+  static const chefDashboard = '/chef-dashboard';
+
 
 
   static final routes = <GetPage>[
@@ -31,8 +33,15 @@ class AppRoutes {
 
     ), // Dashboard route
     GetPage(
-      name: AppRoutes.dashboard,
+      name: AppRoutes.waiterDashboard,
       page: () =>  TableManagementView(),
+      binding: AppBindings(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
+    GetPage(
+      name: AppRoutes.chefDashboard,
+      page: () =>  OrderManagementView(),
       binding: AppBindings(),
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 300),

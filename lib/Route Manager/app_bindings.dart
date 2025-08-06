@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import '../Controller/login_controller.dart';
+import '../Controller/order_management _controller.dart';
 import '../Controller/table_management_controller.dart';
 
 class AppBindings extends Bindings {
@@ -10,6 +11,11 @@ class AppBindings extends Bindings {
     // Register all controllers here
     Get.lazyPut<LoginController>(() => LoginController(), fenix: true);
     Get.lazyPut<TableManagementController>(() => TableManagementController());
-
+    Get.lazyPut<OrderManagementController>(
+          () => OrderManagementController(),
+    );
   }
 }
+
+
+
