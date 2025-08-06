@@ -213,20 +213,20 @@ class AddItemsPage extends StatelessWidget {
         ),
         backgroundColor: Colors.blue[600],
         elevation: 0,
-        actions: [
-          TextButton(
-            onPressed: () {
-              // Logout functionality
-            },
-            child: Text(
-              'logout',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 14.sp,
-              ),
-            ),
-          ),
-        ],
+        // actions: [
+        //   TextButton(
+        //     onPressed: () {
+        //       // Logout functionality
+        //     },
+        //     child: Text(
+        //       'logout',
+        //       style: TextStyle(
+        //         color: Colors.white,
+        //         fontSize: 14.sp,
+        //       ),
+        //     ),
+        //   ),
+        // ],
       ),
       body: SafeArea(
         child: Column(

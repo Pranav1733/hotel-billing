@@ -150,6 +150,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import '../../Auth/login_view.dart';
 import '../../Controller/table_management_controller.dart';
 import 'widgets/table_widget.dart';
 
@@ -200,10 +201,13 @@ class TableManagementView extends StatelessWidget {
           }),
           TextButton(
             onPressed: () {
-              // Logout functionality
+              // Perform logout logic
+
+              // Navigate to login page directly
+              Get.offAll(LoginScreen()); // make sure LoginScreen is imported
             },
             child: Text(
-              'logout',
+              'Logout',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 14.sp,
