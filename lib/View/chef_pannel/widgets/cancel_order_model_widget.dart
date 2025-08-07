@@ -26,13 +26,12 @@ class CancelOrderModal extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // Header with close button
+              // Header with close button in top right
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(width: 24), // Spacer for centering
                   Text(
-                    'Reason For Cancelling The Order',
+                    'Reason For Cancelling ',
                     style: TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w600,
@@ -49,20 +48,7 @@ class CancelOrderModal extends StatelessWidget {
                   ),
                 ],
               ),
-
-              SizedBox(height: 8.h),
-
-              // Subtitle
-              Text(
-                'Please Enable Location Permission For Better Recommendations Of Products',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  color: Colors.grey[600],
-                ),
-              ),
-
-              SizedBox(height: 24.h),
+              SizedBox(height: 10.h),
 
               // Form
               Form(
@@ -123,7 +109,7 @@ class CancelOrderModal extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: 24.h),
+                    SizedBox(height: 16.h),
 
                     // Cancel order button
                     SizedBox(

@@ -1436,4 +1436,6 @@ class TableManagementController extends GetxController {
       phoneController.text = customerData.value!['phone'] ?? '';
     }
   }
+
+  void toggleSideDrawer() {}
 }

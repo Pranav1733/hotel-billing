@@ -241,19 +241,20 @@ class AddItemsPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'add items',
+                        'Add Items',
                         style: TextStyle(
                           fontSize: 18.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Obx(() => Text(
-                        'table no : ${controller.selectedTable.value?['number'] ?? 1}',
+                        'Table No : ${controller.selectedTable.value?['number'] ?? 1}',
                         style: TextStyle(
                           fontSize: 14.sp,
-                          color: Colors.grey[600],
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
                         ),
-                      )),
+                      ),
                     ],
                   ),
                   SizedBox(height: 16.h),
